@@ -22,6 +22,15 @@ py_test(
   deps = [ ":test_phantomjs" ],
   browsers = [ "phantomjs" ])
 
+py_test(
+  name = "mobileSafari_test",
+  deps = [ ":test_mobileSafari" ],
+  browsers = [ "mobileSafari" ])
+
+py_test(
+  name = "mobileSafari_iPad_test",
+  deps = [ ":test_mobileSafari" ],
+  browsers = [ "mobileSafari_iPad" ])
 
 py_test(
   name = "chrome_test",
@@ -66,6 +75,7 @@ py_test(
     "ff",
     "ie",
     "phantomjs",
+    "mobileSafari",
     "remote_firefox",
     "opera"
   ])

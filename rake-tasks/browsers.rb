@@ -76,6 +76,26 @@ BROWSERS = {
     },
     :browser_name => "phantomjs"
   },
+  "mobileSafari" => {
+    :python => {
+      :ignore => "mobileSafari",
+      :dir => "mobileSafari",
+      :file_string => "remote",
+      :class => "Remote",
+      :constructor_args => "desired_capabilities=webdriver.DesiredCapabilities.IPHONE"
+    },
+    :browser_name => "MobileSafari"
+  },
+  "mobileSafari_iPad" => {
+    :python => {
+      :ignore => "mobileSafari",
+      :dir => "mobileSafari",
+      :file_string => "remote",
+      :class => "Remote",
+      :constructor_args => "desired_capabilities=webdriver.DesiredCapabilities.IPAD"
+    },
+    :browser_name => "MobileSafari_iPad"
+  },
   "remote_firefox" => {
     :python => {
       :dir => "remote",

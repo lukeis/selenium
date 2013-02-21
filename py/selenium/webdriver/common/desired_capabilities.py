@@ -64,17 +64,27 @@ class DesiredCapabilities(object):
     }
 
     IPHONE = {
+        'device' : 'iphone',
+        'language': 'en',
+        'locale': 'en_US',
+        'CFBundleName': 'Safari',
+        'simulator':True,
+        'variation':'Regular',
+        'timeHack':False,
         "browserName": "iPhone",
-        "version": "",
         "platform": "MAC",
-        "javascriptEnabled": True,
     }
 
     IPAD = {
+        'device' : 'ipad',
+        'language': 'en',
+        'locale': 'en_US',
+        'CFBundleName': 'Safari',
+        'simulator':True,
+        'variation':'Regular',
+        'timeHack':False,
         "browserName": "iPad",
-        "version": "",
         "platform": "MAC",
-        "javascriptEnabled": True,
     }
 
     ANDROID = {
@@ -90,4 +100,3 @@ class DesiredCapabilities(object):
         "platform": "ANY",
         "javascriptEnabled": True,
     }
-
