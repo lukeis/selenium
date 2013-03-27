@@ -226,6 +226,7 @@ class ApiExampleTest (unittest.TestCase):
         self.assertTrue(visible, "Should be visible")
         self.assertFalse(not_visible, "Should not be visible")
 
+    @pytest.mark.ignore_mobileSafari
     def testMoveWindowPosition(self):
         self._loadPage("blank")
         loc = self.driver.get_window_position()
@@ -241,6 +242,7 @@ class ApiExampleTest (unittest.TestCase):
         self.assertEquals(loc['x'], newLoc[0])
         self.assertEquals(loc['y'], newLoc[1])
 
+    @pytest.mark.ignore_mobileSafari
     def testChangeWindowSize(self):
         self._loadPage("blank")
         size = self.driver.get_window_size()
