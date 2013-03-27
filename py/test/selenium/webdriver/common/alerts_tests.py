@@ -39,7 +39,7 @@ class AlertsTest(unittest.TestCase):
 
     def testShouldAllowUsersToAcceptAnAlertWithNoTextManually(self):
         self._loadPage("alerts")
-        self.driver.find_element(By.ID,"empty-alert").click();
+        self.driver.find_element(By.ID,"empty-alert").click()
         alert = self.driver.switch_to_alert()
         alert.accept()
 
@@ -99,19 +99,19 @@ class AlertsTest(unittest.TestCase):
 
     def testSettingTheValueOfAnAlertThrows(self):
         self._loadPage("alerts")
-        self.driver.find_element(By.ID,"alert").click();
+        self.driver.find_element(By.ID,"alert").click()
 
         alert = self.driver.switch_to_alert()
         try:
-            alert.send_keys("cheese");
-            self.fail("Expected exception");
+            alert.send_keys("cheese")
+            self.fail("Expected exception")
         except ElementNotVisibleException:
             pass
         finally:
             alert.accept()
 
     def testAlertShouldNotAllowAdditionalCommandsIfDimissed(self):
-        self._loadPage("alerts");
+        self._loadPage("alerts")
         self.driver.find_element(By.ID, "alert").click()
 
         alert = self.driver.switch_to_alert()
@@ -180,7 +180,7 @@ class AlertsTest(unittest.TestCase):
 
         alert2 = self.driver.switch_to_alert()
         alert2.send_keys("cheddar")
-        alert2.accept();
+        alert2.accept()
 
         self.assertEqual(self.driver.find_element(By.ID, "text1").text, "Brie")
         self.assertEqual(self.driver.find_element(By.ID, "text2").text, "cheddar")
