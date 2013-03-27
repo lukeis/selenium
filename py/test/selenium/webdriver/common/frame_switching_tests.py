@@ -180,7 +180,7 @@ class FrameSwitchingTest(unittest.TestCase):
     #    self.driver.find_element_by_link_text("top").click()
     #    time.sleep(1)
     #    self.assertEqual("XHTML Test Page", self.driver.title)
-    #    self.assertEqual("XHTML Test Page", 
+    #    self.assertEqual("XHTML Test Page",
     #    self.driver.find_element_by_xpath("/html/head/title").text)
 
     def testThatWeShouldNotAutoSwitchFocusToAnIFrameWhenAPageContainingThemIsLoaded(self):
@@ -193,7 +193,7 @@ class FrameSwitchingTest(unittest.TestCase):
         self.driver.switch_to_frame(0)
         self.driver.switch_to_default_content()
         self.driver.find_element_by_id('iframe_page_heading')
-        
+
     # Disabled till we use the Java WebServer
     #def testShouldAllowTheUserToSwitchToAnIFrameAndRemainFocusedOnIt(self):
     #    self._loadPage("iframes")
@@ -221,7 +221,7 @@ class FrameSwitchingTest(unittest.TestCase):
     def testShouldReturnFrameTitleNotWindowTitle(self):
         self._loadPage("frameset")
         self.driver.switch_to_frame("third")
-        self.assertEqual("Unique title", self.driver.title)
+        self.assertEqual("We Leave From Here", self.driver.title)
 
     def _pageURL(self, name):
         return "http://localhost:%d/%s.html" % (self.webserver.port, name)
