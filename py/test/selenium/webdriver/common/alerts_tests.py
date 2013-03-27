@@ -131,6 +131,7 @@ class AlertsTest(unittest.TestCase):
         alert = self.driver.switch_to_alert()
         alert.accept()
 
+        self.driver.switch_to_default_content()
         self.assertEqual("Testing Alerts", self.driver.title)
 
     def testShouldAllowUsersToAcceptAnAlertInANestedFrame(self):
@@ -143,6 +144,7 @@ class AlertsTest(unittest.TestCase):
         alert = self.driver.switch_to_alert()
         alert.accept()
 
+        self.driver.switch_to_default_content()
         self.assertEqual("Testing Alerts", self.driver.title)
 
     def testShouldThrowAnExceptionIfAnAlertHasNotBeenDealtWithAndDismissTheAlert(self):
