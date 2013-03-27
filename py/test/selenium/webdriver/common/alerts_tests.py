@@ -175,14 +175,14 @@ class AlertsTest(unittest.TestCase):
         self.driver.find_element(By.ID, "double-prompt").click()
 
         alert1 = self.driver.switch_to_alert()
-        alert1.send_keys("brie")
+        alert1.send_keys("Brie")
         alert1.accept()
 
         alert2 = self.driver.switch_to_alert()
         alert2.send_keys("cheddar")
         alert2.accept();
 
-        self.assertEqual(self.driver.find_element(By.ID, "text1").text, "brie")
+        self.assertEqual(self.driver.find_element(By.ID, "text1").text, "Brie")
         self.assertEqual(self.driver.find_element(By.ID, "text2").text, "cheddar")
     def testShouldHandleAlertOnPageLoad(self):
         self._loadPage("alerts")
