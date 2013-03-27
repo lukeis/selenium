@@ -55,7 +55,7 @@ class FrameSwitchingTest(unittest.TestCase):
 
     def testShouldBeAbleToSwitchToAnIframeByItsName(self):
       self._loadPage("iframes")
-      self.driver.switch_to_frame("iframe1-name");
+      self.driver.switch_to_frame("iframe1-name")
       element = self.driver.find_element_by_name("id-name1")
       self.assertEquals("name", element.get_attribute("value"))
 
@@ -67,7 +67,7 @@ class FrameSwitchingTest(unittest.TestCase):
 
     def testShouldBeAbleToSwitchToAnIframeByItsID(self):
       self._loadPage("iframes")
-      self.driver.switch_to_frame("iframe1");
+      self.driver.switch_to_frame("iframe1")
       element = self.driver.find_element_by_name("id-name1")
       self.assertEquals("name", element.get_attribute("value"))
 
