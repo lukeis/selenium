@@ -122,6 +122,7 @@ class ApiExampleTest (unittest.TestCase):
         elems = div.find_elements_by_tag_name("p")
         self.assertTrue(len(elems) == 1)
 
+    @pytest.mark.ignore_mobileSafari
     def testSwitchToWindow(self):
         title_1 = "XHTML Test Page"
         title_2 = "We Arrive Here"
