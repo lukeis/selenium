@@ -64,26 +64,20 @@ class DesiredCapabilities(object):
     }
 
     IPHONE = {
-        'device' : 'iphone',
-        'language': 'en',
-        'locale': 'en_US',
-        'CFBundleName': 'Safari',
-        'simulator':True,
-        'variation':'Regular',
-        'timeHack':False,
+        'device' : 'iPhone Simulator',
+        'app': 'safari',
         "browserName": "iPhone",
+        "version": '6.1',
+        'javascriptEnabled': True,
         "platform": "MAC",
     }
 
     IPAD = {
-        'device' : 'ipad',
-        'language': 'en',
-        'locale': 'en_US',
-        'CFBundleName': 'Safari',
-        'simulator':True,
-        'variation':'Regular',
-        'timeHack':False,
-        "browserName": "iPad",
+        'device' : 'iPad Simulator',
+        'app': 'safari',
+        "browserName": "iPhone",
+        "version": '6.1',
+        'javascriptEnabled': True,
         "platform": "MAC",
     }
 
