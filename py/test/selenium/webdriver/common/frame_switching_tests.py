@@ -221,7 +221,7 @@ class FrameSwitchingTest(unittest.TestCase):
     def testShouldReturnFrameTitleNotWindowTitle(self):
         self._loadPage("frameset")
         self.driver.switch_to_frame("third")
-        self.assertEqual("We Leave From Here", self.driver.title)
+        self.assertEqual("Unique title", self.driver.title)
 
     def _pageURL(self, name):
         return "http://localhost:%d/%s.html" % (self.webserver.port, name)
