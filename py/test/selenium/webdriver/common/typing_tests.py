@@ -15,11 +15,12 @@
 
 
 import unittest
+import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 class TypingTests(unittest.TestCase):
-  
+
     def testShouldFireKeyPressEvents(self):
         self._loadPage("javascriptPage")
         keyReporter = self.driver.find_element(by=By.ID, value="keyReporter")
@@ -46,25 +47,25 @@ class TypingTests(unittest.TestCase):
         keyReporter = self.driver.find_element(by=By.ID, value="keyReporter")
         keyReporter.send_keys("abc def")
         self.assertEqual(keyReporter.get_attribute("value"), "abc def")
-    
+
     def testShouldBeAbleToTypeCapitalLetters(self):
         self._loadPage("javascriptPage")
         keyReporter = self.driver.find_element(by=By.ID, value="keyReporter")
         keyReporter.send_keys("ABC DEF")
         self.assertEqual(keyReporter.get_attribute("value"), "ABC DEF")
-    
+
     def testShouldBeAbleToTypeQuoteMarks(self):
         self._loadPage("javascriptPage")
         keyReporter = self.driver.find_element(by=By.ID, value="keyReporter")
         keyReporter.send_keys("\"")
         self.assertEqual(keyReporter.get_attribute("value"), "\"")
-    
+
     def testShouldBeAbleToTypeTheAtCharacter(self):
         self._loadPage("javascriptPage")
         keyReporter = self.driver.find_element(by=By.ID, value="keyReporter")
         keyReporter.send_keys("@")
         self.assertEqual(keyReporter.get_attribute("value"), "@")
-    
+
     def testShouldBeAbleToMixUpperAndLowerCaseLetters(self):
         self._loadPage("javascriptPage")
         keyReporter = self.driver.find_element(by=By.ID, value="keyReporter")
@@ -157,7 +158,7 @@ class TypingTests(unittest.TestCase):
 
         #  And leave no rubbish/printable keys in the "keyReporter"
         self.assertEqual(element.get_attribute("value"), "")
-  
+
     def testNumericNonShiftKeys(self):
         self._loadPage("javascriptPage")
         element = self.driver.find_element(by=By.ID, value="keyReporter")
@@ -258,7 +259,8 @@ class TypingTests(unittest.TestCase):
         element.send_keys("FUNCTION" + Keys.F2 + "-KEYS" + Keys.F2)
         element.send_keys("" + Keys.F2 + "-TOO" + Keys.F2)
         self.assertEqual(element.get_attribute("value"), "FUNCTION-KEYS-TOO")
-  
+
+    @pytest.mark.ignore_mobileSafari
     def testShiftSelectionDeletes(self):
         self._loadPage("javascriptPage")
         element = self.driver.find_element(by=By.ID, value="keyReporter")
@@ -280,7 +282,7 @@ class TypingTests(unittest.TestCase):
         self._loadPage("javascriptPage")
         element = self.driver.find_element(by=By.ID, value="keyReporter")
         element.send_keys(1234)
-        self.assertEqual(element.get_attribute("value"), "1234")    
+        self.assertEqual(element.get_attribute("value"), "1234")
 
 
     def _pageURL(self, name):
