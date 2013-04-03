@@ -68,7 +68,7 @@ class WindowSwitchingTests(unittest.TestCase):
         try :
             self.driver.current_window_handle
             self.fail("NoSuchWindowException expected")
-        except NoSuchWindowException: 
+        except NoSuchWindowException:
             pass # Expected.
         finally:
             self.driver.switch_to_window(current)
@@ -79,7 +79,7 @@ class WindowSwitchingTests(unittest.TestCase):
     def testShouldThrowNoSuchWindowExceptionOnAnyOperationIfAWindowIsClosed(self):
         self._loadPage("xhtmlTest")
         current = self.driver.current_window_handle
-        
+
         self.driver.find_element(By.LINK_TEXT,"Open new window").click()
 
         self.driver.switch_to_window("result")
@@ -88,17 +88,17 @@ class WindowSwitchingTests(unittest.TestCase):
             try :
                 self.driver.title
                 self.fail("NoSuchWindowException expected")
-            except NoSuchWindowException: 
+            except NoSuchWindowException:
                 pass # Expected.
-            
+
             try :
                 self.driver.find_element_by_tag_name("body")
                 self.fail("NoSuchWindowException expected")
-            except NoSuchWindowException: 
+            except NoSuchWindowException:
                 pass # Expected.
         finally:
             self.driver.switch_to_window(current)
-    
+
     @pytest.mark.ignore_chrome
     @pytest.mark.ignore_opera
     @pytest.mark.ignore_ie
@@ -114,7 +114,7 @@ class WindowSwitchingTests(unittest.TestCase):
         try :
             element.text
             self.fail("NoSuchWindowException expected")
-        except NoSuchWindowException: 
+        except NoSuchWindowException:
             pass # Expected.
         finally:
             self.driver.switch_to_window(current)
