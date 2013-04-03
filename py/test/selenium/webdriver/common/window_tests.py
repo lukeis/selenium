@@ -23,21 +23,22 @@ class WindowTests(unittest.TestCase):
     @pytest.mark.ignore_chrome
     @pytest.mark.ignore_opera
     @pytest.mark.ignore_ie
+    @pytest.mark.ignore_mobileSafari
     def testShouldMaximizeTheWindow(self):
         self.driver.set_window_size(200, 200)
         # TODO convert to WebDriverWait
         time.sleep(0.5);
-            
+
         size = self.driver.get_window_size()
-                
+
         self.driver.maximize_window()
         # TODO convert to WebDriverWait
         time.sleep(0.5)
-                                
+
         new_size = self.driver.get_window_size()
         assert new_size["width"] > size["width"]
         assert new_size["height"] > size["height"]
-        
+
     def _pageURL(self, name):
         return "http://localhost:%d/%s.html" % (self.webserver.port, name)
 
