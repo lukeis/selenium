@@ -15,7 +15,7 @@ class ClickScrollingTest(unittest.TestCase):
                   }\
                   return pageY;"
 
-        self._loadPage("macbeth") 
+        self._loadPage("macbeth")
         self.driver.find_element(By.PARTIAL_LINK_TEXT,"last speech").click()
         yOffset = self.driver.execute_script(scrollScript)
 
@@ -51,6 +51,7 @@ class ClickScrollingTest(unittest.TestCase):
 
     @pytest.mark.ignore_chrome
     @pytest.mark.ignore_safari
+    @pytest.mark.ignore_mobileSafari
     def testShouldNotScrollIfAlreadyScrolledAndElementIsInView(self):
         self._loadPage("scroll3")
         self.driver.find_element(By.ID, "button1").click()
@@ -62,7 +63,7 @@ class ClickScrollingTest(unittest.TestCase):
         self._loadPage("scroll4")
         self.driver.find_element(By.ID, "radio").click()
         # If we dont throw we are good
-        
+
     @pytest.mark.ignore_ie
     def testShouldScrollOverflowElementsIfClickPointIsOutOfViewButElementIsInView(self):
         self._loadPage("scroll5")
